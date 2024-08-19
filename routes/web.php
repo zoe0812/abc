@@ -42,6 +42,10 @@ Route::post("/res_user",[UserController::class,'res_user']);
 
 Route::post("/logout",[UserController::class,'destroy']);
 
+Route::get("/otppage/{email}",[UserController::class,'otppage'])->name("sendotp");
+
+Route::post("/verifyemail/{email}",[UserController::class,'verifyemail']);
+
 
 
 
