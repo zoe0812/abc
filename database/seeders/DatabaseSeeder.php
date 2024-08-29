@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
             "p_name"=>"Cauliflower",
             "p_desc"=>"A cruciferous vegetable with a compact head made up of undeveloped white flower buds. It has a mild flavor and is rich in fiber, vitamins C and K, and antioxidants. It can be eaten raw or cooked and is often used as a low-carb substitute for grains and legumes",
             "p_price"=>"11.50",
-            "p_image"=>"img-18.png"
+            "p_image"=>"img-19.png"
         ]);
         product::create([
             "id"=>9,
@@ -92,8 +92,8 @@ class DatabaseSeeder extends Seeder
             "p_price"=>"3.50",
             "p_image"=>"img-5.png"
         ]);
-        // cart_id::create([
-        //     'cart_id'=>0,
-        // ]);
+        cart_id::create([
+            'cart_id'=>0,
+        ]);
     }
 }

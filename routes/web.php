@@ -19,8 +19,6 @@ use App\Http\Controllers\UserController;
 //home
 Route::get("/",[productsController::class,'home']);
 
-Route::post("/addcart/{product}",[productsController::class,'addcart'])->middleware("auth");
-
 
 //cart
 Route::get("/cartlist",[productsController::class,'cartlist']);
@@ -28,6 +26,9 @@ Route::get("/cartlist",[productsController::class,'cartlist']);
 Route::put("/checkout/{cartid}",[productsController::class,'checkout']);
 
 Route::delete("/{id}/cartdelete",[productsController::class,'delete']);
+
+Route::post("/addcart/{product}", [productsController::class, 'addcart'])->middleware("auth");
+
 
 
 
@@ -45,6 +46,9 @@ Route::post("/logout",[UserController::class,'destroy']);
 Route::get("/otppage/{email}",[UserController::class,'otppage'])->name("sendotp");
 
 Route::post("/verifyemail/{email}",[UserController::class,'verifyemail']);
+
+
+
 
 
 

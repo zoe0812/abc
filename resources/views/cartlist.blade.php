@@ -93,24 +93,29 @@ h2 {
                         <div class="col col-3">Amount Due</div>
                         <div class="col col-1">Remove</div>
                       </li>
+                      @php
+                          $total_price=0;
+                      @endphp
                         @foreach ($carts as $cart)
                         <li class="table-row">
                             <div class="col col-4" data-label="Product Name">{{ $cart->p_name }}</div>
                             <div class="col col-2" data-label="Quantity">{{ $cart->qty }}</div>
-                            <div class="col col-3" data-label="Amount">${{ $cart->price }}</div>
+                            <div class="col col-3" data-label="Amount">${{ $cart->p_price }}</div>
                             <div class="col col-1" data-label="status">
-                                
+                                @php
+                                    $total_price+=$cart->p_price;
+                                @endphp
                                 <form action="/{{ $cart->newid }}/cartdelete" method="POST">
                                     @csrf
                                     @method("DELETE")
-                                    <button type="submit"  >Delete</button>
+                                    <button type="submit">Delete</button>
                                 </form>
                             </div>
                         </li>
                         @endforeach
                         <li class="table-row">
                             <div class="col col-7" >Total Amount</div>
-                            <div class="col col-3" style="text-align:left">${{ $total_price[0]->t_price }}</div>
+                            <div class="col col-3" style="text-align:left">${{ $total_price}}</div>
                             <div class="col col-2" style="text-align:left">
                             <form action="/checkout/{{ $carts[0]->c_id }}" method="POST">
                                 @csrf
